@@ -1,0 +1,19 @@
+{
+    "editor.snippetSuggestions": "none",
+    "editor.tabSize": 2,
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/builddir",
+        "--background-index",
+        "--header-insertion=never"
+    ],
+    "clangd.inlayHints.enabled": {
+        "parameterNames": false,
+        "typeHints": true,
+        "deducedTypes": true
+    },
+    "[c]": {
+        "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+    },
+    "C_Cpp.default.configurationProvider": "mesonbuild.mesonbuild",
+    "C_Cpp.default.compileCommands": "/home/marcus/workspace/mcmp/builddir/compile_commands.json"
+}

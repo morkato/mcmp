@@ -1,4 +1,4 @@
-inc = include_directories('../policy/include', 'include')
+inc = include_directories('../include', 'include')
 common_sources = files(
   'src/common/chunkedqueue.c',
   'src/common/setqueue.c',
@@ -10,10 +10,10 @@ linux_sources = files(
 )
 
 libutilities = shared_library(
-  'monarch-utilities',
+  'mcmp-utilities',
   common_sources + linux_sources,
   include_directories: inc,
-  dependencies: [libpolicy_dep],
+  dependencies: [libmcmp_dep],
   install: true,
   install_dir: get_option('libdir')
 )
@@ -24,7 +24,7 @@ libutilities_dep = declare_dependency(
 )
 
 install_headers(
-  'include/monarch/util/setqueue.h',
-  'include/monarch/util/queue.h',
-  subdir: 'monarch/util'
+  'include/mcmp/util/setqueue.h',
+  'include/mcmp/util/queue.h',
+  subdir: 'mcmp/util'
 )
