@@ -6,7 +6,7 @@ common_sources = files(
 )
 
 linux_sources = files(
-  'src/linux/utilities.c'
+  
 )
 
 libmcmp = shared_library(

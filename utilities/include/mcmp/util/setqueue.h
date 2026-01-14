@@ -34,8 +34,8 @@ typedef void* mcmpsetqueue;
 
 _Static_assert(sizeof(mcmpsetqueue_header_t) == 64UL, "a");
 
-mcmpsetqueue  mcmchSetQueueCreate  (const size_t length);
-void          mcmchSetQueueDestroy (const mcmpsetqueue queue);
-mcmpst        mcmchSetQueuePush    (mcmpsetqueue queue, const mcmpsetqueue_index_t idx);
-mcmpst        mcmchSetQueueTake    (mcmpsetqueue queue, mcmpsetqueue_index_t* ind);
+mcmpsetqueue  mcmpSetQueueCreate  (const size_t length);
+void          mcmpSetQueueDestroy (const mcmpsetqueue squ);
+mcmpst        mcmpSetQueuePush    (mcmpsetqueue squ, const mcmpsetqueue_index_t idx);
+mcmpst        mcmpSetQueueTake    (mcmpsetqueue squ, mcmpsetqueue_index_t* ind);
 #endif // MCMP_UTIL_SETQUEUE_H

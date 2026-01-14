@@ -2,7 +2,6 @@ inc = include_directories('../include', 'include')
 common_sources = files(
   'src/common/chunkedqueue.c',
   'src/common/setqueue.c',
-  'src/common/queue.c',
   'src/common/atomicbitmap.c',
   'src/common/bitmap.c'
 )
@@ -24,7 +23,16 @@ libutilities_dep = declare_dependency(
 )
 
 install_headers(
+  'include/mcmp/util/atomicbitmap.h',
+  'include/mcmp/util/bitmap.h',
+  'include/mcmp/util/chunkedqueue.h',
   'include/mcmp/util/setqueue.h',
-  'include/mcmp/util/queue.h',
   subdir: 'mcmp/util'
 )
+
+test_setqueue_exe = executable('test-setqueue',
+  'test/test_setqueue.c',
+  dependencies: [libutilities_dep]
+)
+
+test('Teste', test_setqueue_exe)

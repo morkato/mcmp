@@ -58,14 +58,17 @@ builddir
 
 # Specic
 
-include/mcmp/proto.h
-include/mcmp/mcmp.h
-include/mcmp/time.h
-include/mcmp/utilities.h
-include/mcmp/log.h
-src/common/mcmp.c
-src/linux/mcmp.c
-src/linux/time.c
-src/linux/utilities.c
-test/
-cli/
+./include/mcmp/proto.h
+./include/mcmp/mcmp.h
+./include/mcmp/time.h
+./include/mcmp/utilities.h
+./include/mcmp/log.h
+./src/common/mcmp.c
+./src/linux/mcmp.c
+./src/linux/time.c
+./src/linux/utilities.c
+./test/
+./cli/
+
+./utilities/include/mcmp/util/queue.h
+./utilities/src/common/queue.c

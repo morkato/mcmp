@@ -3,6 +3,8 @@
 
 #if defined(__GNUC__) || defined(__clang__)
   #define MCMPST_THREAD __thread
+  #define likely(x)     __builtin_expect(!!(x), 1)
+  #define unlikely(x)   __builtin_expect(!!(x), 0)
 #elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L && !defined(__STDC_NO_THREADS__)
   #define MCMPST_THREAD _Thread_local
 #endif /** ...  */

@@ -5,7 +5,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-mcmpsetqueue mcmchSetQueueCreate(const size_t length) {
+mcmpsetqueue mcmpSetQueueCreate(const size_t length) {
   const size_t           byteslength = (length + 7UL) / 8UL;
   mcmpsetqueue_header_t* header = NULL;
   mcmpsetqueue           squ = (mcmpsetqueue)malloc(  
@@ -22,14 +22,15 @@ mcmpsetqueue mcmchSetQueueCreate(const size_t length) {
   header->length = length;
   header->head = 0UL;
   header->tail = 0UL;
+  memset(MCMP_SQU_GET_VALUES_BITMAP(squ), 0, byteslength * 2);
   return squ;
 }
 
-void mcmchSetQueueDestroy(const mcmpsetqueue squ) {
+void mcmpSetQueueDestroy(const mcmpsetqueue squ) {
   free(squ);
 }
 
-mcmpst mcmchSetQueuePush(
+mcmpst mcmpSetQueuePush(
   mcmpsetqueue               squ,
   const mcmpsetqueue_index_t ind
 ) {
@@ -95,7 +96,7 @@ mcmpst mcmchSetQueuePush(
   MCMPST_RETURN(MCMPST_SUCCESS);
 }
 
-mcmpst mcmchSetQueueTake(mcmpsetqueue squ, mcmpsetqueue_index_t* ind) {
+mcmpst mcmpSetQueueTake(mcmpsetqueue squ, mcmpsetqueue_index_t* ind) {
   const size_t bitslength = MCMP_SQU_GET_BITSLENGTH(squ);
   uint8_t      mask_ready;
   uint8_t      mask_set;
